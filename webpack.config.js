@@ -70,6 +70,17 @@ module.exports = {
             hash: true,       // true | false。如果是true，会给所有包含的script和css添加一个唯一的webpack编译hash值。这对于缓存清除非常有用。
             inject: 'body',     // | 'head' | 'body' | false  ,注入所有的资源到特定的 template 或者 templateContent 中，如果设置为 true 或者 body，所有的 javascript 资源将被放置到 body 元素的底部，'head' 将放置到 head 元素中。
 
+        }),
+        new HtmlWebpackPlugin({
+            /*当指定了chunks属性，webpack会按照这个属性定义的数组，
+            将数组中所有片段完成打包，并用script标签将打包的js插入到生成的页面中，
+            没有在数组中的片段，则不插入页面,数组定义为”entry“定义的数组名称！*/
+            chunks:['turtle','main'],
+            filename:'bdd.html',//生成的文件名称
+            template:'src/Assets/Tpl/bdd.html', //html模板路径
+            title:'turtle to js',
+            hash: true,       // true | false。如果是true，会给所有包含的script和css添加一个唯一的webpack编译hash值。这对于缓存清除非常有用。
+            inject: 'body',     // | 'head' | 'body' | false  ,注入所有的资源到特定的 template 或者 templateContent 中，如果设置为 true 或者 body，所有的 javascript 资源将被放置到 body 元素的底部，'head' 将放置到 head 元素中。
         })
     ],
     devServer:{
