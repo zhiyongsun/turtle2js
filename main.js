@@ -15,8 +15,8 @@ class Main {
        let prog = document.getElementById("editor-code").value;
        (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'draw-canvas';
        Sk.configure({ read:this.builtinRead});
-       Sk.TurtleGraphics.width = 500;
-       Sk.TurtleGraphics.height = 500;
+       Sk.TurtleGraphics.width = 600;
+       Sk.TurtleGraphics.height = 600;
        try {
           //Sk.importMainWithBody("<stdin>",false,prog);
           Sk.misceval.asyncToPromise(function() {
@@ -28,11 +28,7 @@ class Main {
     }
 
     bindEvent() {
-
-        document.getElementById('run-code-button').addEventListener('click', ()=>{
-            this.runCode();
-        });
-
+       this.runCode();
     }
 
 }
